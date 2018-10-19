@@ -1,0 +1,11 @@
+{
+  "name": "polly",
+  "version": "1.0.0",
+  "description": "A simple bot just for fun!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jhon Fredy Beltrán León <jbeltranleon@gmail.com>",
+  "license": "MIT"
+}
