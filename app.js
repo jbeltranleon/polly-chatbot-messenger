@@ -6,6 +6,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 
+const access_token = 'EAAQMCDejpzkBALQ8tALGWvTGG1FSHrdwpNPXOTY5D5vsIU8paIr95ZCL6mRmEPjxYtQ7dhZC6CuSOQLZAFRd6ZBtBDKjpHdqpCOFgVtNkwfP5d3p9odzzw80IFEGkI8rRJyGVxfdKXEktcCyAEcNONDdGECZBnANKlZBrU6Vp7OFKHBJHJvnZAT';
+
 const app = express();
 
 app.set('port', 5000);
@@ -25,16 +27,52 @@ app.get('/webhook', function (req, response){
     }
 })
 
-/* Validar que exista un objeto mensaje y retornarlo */
+/* Validar que exista un objeto mensaje y retornar un mensaje */
 app.post('/webhook', function (req, res) {
     const webhook_event = req.body.entry[0];
     if(webhook_event.messaging){
         webhook_event.messaging.forEach(event => {
             console.log(event);
+            handleMessage(event);
         })
     }
     res.sendStatus(200);
 })
+
+/* Manejo del mensaje recibido y su respuesta*/
+function handleMessage(event) {
+    const senderId = event.sender.id;
+    const messageText = event.message.text;
+    const messageData = {
+        recipient: {
+            id: senderId
+        },
+        message: {
+            text: messageText
+        }
+    }
+    callSendApi(messageData);
+}
+
+/* respuesta */
+function callSendApi(response) {
+    request({
+        "uri": "https://graph.facebook.com/me/messages/",
+        "qs": {
+            "access_token": access_token
+        },
+        "method": "POST",
+        "json": response
+    },
+    function (err) {
+        if (err) {
+            console.log('Ha ocurrido un error');
+        }else{
+            console.log('Mensaje enviado')
+        }
+    }
+)
+}
 
 /* Log de Funcionaminto */
 app.listen(app.get('port'), function(){
