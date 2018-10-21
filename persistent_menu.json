@@ -1,0 +1,59 @@
+curl -X POST -H "Content-Type: application/json" -d '{
+"persistent_menu": [{
+  "locale": "default",
+  "composer_input_disabled": false,
+  "call_to_actions": [{
+      "title": "🐱 Polly ",
+      "type": "nested",
+      "call_to_actions": [{
+          "title": "Acerca",
+          "type": "postback",
+          "payload": "ABOUT_PAYLOAD"
+        },
+        {
+          "title": "Ayuda",
+          "type": "postback",
+          "payload": "HELP_PAYLOAD"
+        },
+        {
+          "title": "Contacto",
+          "type": "postback",
+          "payload": "CONTACT_PAYLOAD"
+        }
+      ]
+    },
+    {
+      "title": "💚 Mis Actividades Favoritas",
+      "type": "nested",
+      "call_to_actions": [{
+          "title": "Dormir",
+          "type": "postback",
+          "payload": "SLEEP_PAYLOAD"
+        },
+        {
+          "title": "Jugar",
+          "type": "postback",
+          "payload": "PLAY_PAYLOAD"
+        },
+        {
+          "title": "Arañar muebles",
+          "type": "postback",
+          "payload": "SCRATCH_PAYLOAD"
+        },
+        {
+          "title": "Maullar",
+          "type": "postback",
+          "payload": "MEOW_PAYLOAD"
+        }
+      ]
+    },
+    {
+      "type": "web_url",
+      "title": "Pagina de mi Cuidador",
+      "url": "https://jbeltranleon.co",
+      "webview_height_ratio": "full"
+    }
+  ]
+}]
+}
+' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAQMCDejpzkBALQ8tALGWvTGG1FSHrdwpNPXOTY5D5vsIU8paIr95ZCL6mRmEPjxYtQ7dhZC6CuSOQLZAFRd6ZBtBDKjpHdqpCOFgVtNkwfP5d3p9odzzw80IFEGkI8rRJyGVxfdKXEktcCyAEcNONDdGECZBnANKlZBrU6Vp7OFKHBJHJvnZAT"
