@@ -6,7 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 
-const access_token = 'EAAQMCDejpzkBALQ8tALGWvTGG1FSHrdwpNPXOTY5D5vsIU8paIr95ZCL6mRmEPjxYtQ7dhZC6CuSOQLZAFRd6ZBtBDKjpHdqpCOFgVtNkwfP5d3p9odzzw80IFEGkI8rRJyGVxfdKXEktcCyAEcNONDdGECZBnANKlZBrU6Vp7OFKHBJHJvnZAT';
+const access_token = 'EAAjdJRRDh1MBAG3OOaqCU5RJkS6Uw79tYed6JCMdUtRAi3nUHCuv2XNZAudGu9hIkNlcVZABQ1dz3yoOIFhjR4KknG2vRGlGM9jz9RFGR4uy64PDoOVrlF4SdlPGntBFzPny84tZCBh39fDZCEBkjsyB7lME4Db9g9ZBG7PTDkZCL1UepOy0vP';
 
 const app = express();
 
@@ -33,22 +33,34 @@ app.post('/webhook', function (req, res) {
     if(webhook_event.messaging){
         webhook_event.messaging.forEach(event => {
             console.log(event);
-            handleMessage(event);
+            handleEvent(event.sender.id, event);
         })
     }
     res.sendStatus(200);
 })
 
-/* Manejo del mensaje recibido y su respuesta*/
-function handleMessage(event) {
-    const senderId = event.sender.id;
-    const messageText = event.message.text;
+/* Verificación del evento mensaje */
+function handleEvent(senderId, event) {
+    if (event.message) {
+        handleMessage(senderId, event.message);
+    }
+}
+
+/* Validar que el mensaje sea texto */
+function handleMessage(senderId, event) {
+    if(event.text){
+        defaultMessage(senderId);
+    }
+}
+
+/* Redireccionamiento de mensaje default */
+function defaultMessage(senderId) {
     const messageData = {
-        recipient: {
-            id: senderId
+        "recipient":{
+            "id": senderId
         },
-        message: {
-            text: messageText
+        "message":{
+            "text": "Hola Soy el Chat bot de Polly!"
         }
     }
     callSendApi(messageData);

@@ -56,4 +56,4 @@ curl -X POST -H "Content-Type: application/json" -d '{
   ]
 }]
 }
-' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAQMCDejpzkBALQ8tALGWvTGG1FSHrdwpNPXOTY5D5vsIU8paIr95ZCL6mRmEPjxYtQ7dhZC6CuSOQLZAFRd6ZBtBDKjpHdqpCOFgVtNkwfP5d3p9odzzw80IFEGkI8rRJyGVxfdKXEktcCyAEcNONDdGECZBnANKlZBrU6Vp7OFKHBJHJvnZAT"
+' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAjdJRRDh1MBAG3OOaqCU5RJkS6Uw79tYed6JCMdUtRAi3nUHCuv2XNZAudGu9hIkNlcVZABQ1dz3yoOIFhjR4KknG2vRGlGM9jz9RFGR4uy64PDoOVrlF4SdlPGntBFzPny84tZCBh39fDZCEBkjsyB7lME4Db9g9ZBG7PTDkZCL1UepOy0vP"
