@@ -64,7 +64,19 @@ function defaultMessage(senderId) {
             "id": senderId
         },
         "message":{
-            "text": "Hola Soy el Chat bot de Polly!"
+            "text": "Hola Soy el Chat bot de Polly :) !",
+            "quick_replies": [
+                {
+                    "content_type": "text",
+                    "title": "¿Buscas a Fredy?",
+                    "payload": "CARER_PAYLOAD"
+                },
+                {
+                    "content_type": "text",
+                    "title": "¿Quieres conversar?",
+                    "payload": "TALK_PAYLOAD"
+                }
+            ]
         }
     }
     callSendApi(messageData);
