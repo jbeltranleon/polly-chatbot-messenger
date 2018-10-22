@@ -79,6 +79,7 @@ function defaultMessage(senderId) {
             ]
         }
     }
+    senderActions(senderId)
     callSendApi(messageData);
 }
 
@@ -112,6 +113,16 @@ function handleAttachments(senderId, event) {
         default:
             break;
     }
+}
+
+function senderActions(senderId) {
+    const messageData = {
+        "recipient": {
+            "id": senderId
+        },
+        "sender_action": "typing_on"
+    }
+    callSendApi(messageData);
 }
 
 /* respuesta */
