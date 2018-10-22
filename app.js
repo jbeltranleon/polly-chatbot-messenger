@@ -84,11 +84,18 @@ function defaultMessage(senderId) {
 }
 
 function handlePostback(senderId, payload) {
+    console.log(payload)
     switch (payload) {
         case "GET_STARTED_POLLY":
             console.log(payload)
             break;
-    
+        /* Aún no funciona */
+        case "TALK_PAYLOAD":
+            showTopics(senderId);
+            break;
+        case "CHATBOTS_PAYLOAD":
+            showBots(senderId);
+            break;
         default:
             break;
     }
@@ -143,6 +150,92 @@ function callSendApi(response) {
         }
     }
 )
+}
+
+function showTopics(senderId) {
+    const messageData = {
+        "recipient": {
+            "id": senderId
+        },
+        "message": {
+            "attachment":{
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": [
+                        {
+                            "title": "Gatos",
+                            "subtitle": "¡Hablemos de los mejores!",
+                            "image_url": "https://images.unsplash.com/photo-1517331156700-3c241d2b4d83?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1202328eba9feb2db5d77a95f0938672&auto=format&fit=crop&w=748&q=80",
+                            "buttons": [
+                                {
+                                    "type": "postback",
+                                    "title": "Hablemos de Gatos",
+                                    "payload": "CATS_PAYLOAD"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Deportes",
+                            "subtitle": "¡A los gatos nos encantan los deportes!",
+                            "image_url": "https://images.unsplash.com/photo-1529763886910-f0cdc57d31c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1d402f0b1266adca76031d6fdd658a5a&auto=format&fit=crop&w=750&q=80",
+                            "buttons": [
+                                {
+                                    "type": "postback",
+                                    "title": "Hablemos de Deportes",
+                                    "payload": "SPORTS_PAYLOAD"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    callSendApi(messageData);
+}
+
+function showBots(senderId) {
+    const messageData = {
+        "recipient": {
+            "id": senderId
+        },
+        "message": {
+            "attachment":{
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": [
+                        {
+                            "title": "ChatBot para Negocios",
+                            "subtitle": "¡Descripción!",
+                            "image_url": "https://images.unsplash.com/photo-1526541081349-3ee69702354c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=23efff703c6e62768692504214aedcf0&auto=format&fit=crop&w=1050&q=80",
+                            "buttons": [
+                                {
+                                    "type": "postback",
+                                    "title": "Para mi Negocio",
+                                    "payload": "BUSINESSBOT_PAYLOAD"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "ChatBot Personal",
+                            "subtitle": "¡Descripción",
+                            "image_url": "https://images.unsplash.com/photo-1494959764136-6be9eb3c261e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d56d83667dc38f36ed4bd763b01fc1f0&auto=format&fit=crop&w=1050&q=80",
+                            "buttons": [
+                                {
+                                    "type": "postback",
+                                    "title": "Para mí",
+                                    "payload": "PERSONALBOT_PAYLOAD"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    callSendApi(messageData);
 }
 
 /* Log de Funcionaminto */

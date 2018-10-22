@@ -23,27 +23,22 @@ curl -X POST -H "Content-Type: application/json" -d '{
       ]
     },
     {
-      "title": "💚 Mis Actividades Favoritas",
+      "title": " Catalogo de Productos ",
       "type": "nested",
       "call_to_actions": [{
-          "title": "Dormir",
+          "title": "Chat Bots",
           "type": "postback",
-          "payload": "SLEEP_PAYLOAD"
+          "payload": "CHATBOTS_PAYLOAD"
         },
         {
-          "title": "Jugar",
+          "title": "Sitios Web",
           "type": "postback",
-          "payload": "PLAY_PAYLOAD"
+          "payload": "WEBSITES_PAYLOAD"
         },
         {
-          "title": "Arañar muebles",
+          "title": "Desarrollo y Machine Learning",
           "type": "postback",
-          "payload": "SCRATCH_PAYLOAD"
-        },
-        {
-          "title": "Maullar",
-          "type": "postback",
-          "payload": "MEOW_PAYLOAD"
+          "payload": "DEVML_PAYLOAD"
         }
       ]
     },
