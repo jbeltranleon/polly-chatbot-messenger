@@ -6,7 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 
-const access_token = 'EAAjdJRRDh1MBAG3OOaqCU5RJkS6Uw79tYed6JCMdUtRAi3nUHCuv2XNZAudGu9hIkNlcVZABQ1dz3yoOIFhjR4KknG2vRGlGM9jz9RFGR4uy64PDoOVrlF4SdlPGntBFzPny84tZCBh39fDZCEBkjsyB7lME4Db9g9ZBG7PTDkZCL1UepOy0vP';
+const access_token = 'EAAJ4tPYZBaeMBAA9FiogHsdcgHMr9MMD6GOj2iA0zHVpFHbY6mDIMq6DLCIxv7agvoLf9GtRbddK5XySdOZCLKZAUVVyhfRZC3znRv1r32GqZCoKq4NIdO9k6YFpZCxAN2v0mAuhj5nM3qMxpkjmjVeplq63yXWIdqrYDMUE8fls8WtvV4scxU';
 
 const app = express();
 
@@ -95,6 +95,9 @@ function handlePostback(senderId, payload) {
             break;
         case "CHATBOTS_PAYLOAD":
             showBots(senderId);
+            break;
+        case "PERSONALBOT_PAYLOAD":
+            botMood(senderId);
             break;
         default:
             break;
@@ -236,6 +239,50 @@ function showBots(senderId) {
         }
     }
     callSendApi(messageData);
+}
+
+function botMood(senderId) {
+    const messageData = {
+        "recipient": {
+            "id": senderId
+        },
+        "message": {
+            attachment: {
+                "type": "template",
+                "payload": {
+                    "template_type": "list",
+                    "top_element_style": "large",
+                    "elements": [
+                        {
+                            "title": "Profesional",
+                            "image_url": "https://images.unsplash.com/photo-1536313307004-edfdf22be4a8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c583b92159f184043f0ec311c1dd746e&auto=format&fit=crop&w=846&q=80",
+                            "subtitle": "Honesto, cientifico, medico, Directo...",
+                            "buttons": [
+                                {
+                                    "type": "postback",
+                                    "title": "Elegir Profesional",
+                                    "payload": "PROFESIONAL_PAYLOAD",
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Amistoso",
+                            "image_url": "https://images.unsplash.com/photo-1540510753998-5da2dbd52dbb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b2b9f2228c4ecbf2538b4afbc445c511&auto=format&fit=crop&w=1050&q=80",
+                            "subtitle": "Honesto, Personal, Humilide...",
+                            "buttons": [
+                                {
+                                    "type": "postback",
+                                    "title": "Elegir Amistoso",
+                                    "payload": "FRIENDLY_PAYLOAD",
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    callSendApi(messageData)
 }
 
 /* Log de Funcionaminto */
