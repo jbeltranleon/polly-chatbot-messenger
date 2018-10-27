@@ -51,7 +51,8 @@ function handleEvent(senderId, event) {
 /* Validar que el mensaje sea texto */
 function handleMessage(senderId, event) {
     if(event.text){
-        defaultMessage(senderId);
+        //defaultMessage(senderId);
+        messageImage(senderId)
     }else if (event.attachments) {
         handleAttachments(senderId, event);
     }
@@ -241,6 +242,23 @@ function showBots(senderId) {
     callSendApi(messageData);
 }
 
+function messageImage(senderId) {
+    const messageData = {
+        "recipient": {
+            "id": senderId
+        },
+        "message": {
+            "attachment": {
+                "type": "image",
+                "payload": {
+                    "url": "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif"
+                }
+            }
+        }
+    }
+    callSendApi(messageData);
+}
+
 function botMood(senderId) {
     const messageData = {
         "recipient": {
@@ -282,7 +300,7 @@ function botMood(senderId) {
             }
         }
     }
-    callSendApi(messageData)
+    callSendApi(messageData);
 }
 
 /* Log de Funcionaminto */
