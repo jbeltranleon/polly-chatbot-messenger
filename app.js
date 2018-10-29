@@ -52,7 +52,9 @@ function handleEvent(senderId, event) {
 function handleMessage(senderId, event) {
     if(event.text){
         //defaultMessage(senderId);
-        messageImage(senderId)
+        //messageImage(senderId);
+        //contactSupport(senderId);
+        showLocations(senderId)
     }else if (event.attachments) {
         handleAttachments(senderId, event);
     }
@@ -234,6 +236,77 @@ function showBots(senderId) {
                                 }
                             ]
                         }
+                    ]
+                }
+            }
+        }
+    }
+    callSendApi(messageData);
+}
+
+function contactSupport(senderId) {
+    const messageData = {
+        "recipient": {
+            "id": senderId
+        },
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload":{
+                    "template_type": "button",
+                    "text": "¡Así que necesitas soporte! ¿Quieres llamarnos?",
+                    "buttons": [
+                        {
+                            "type": "phone_number",
+                            "title": "Llamar",
+                            "payload": "+57 3223891049"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    callSendApi(messageData)
+}
+
+function showLocations(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "list",
+                    "top_element_style": "large",
+                    "elements": [
+                        {
+                            "title": "Bogotá",
+                            "image_url": "https://images.unsplash.com/photo-1536334906170-ffa95819c4d4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bb92a6ff6c11ce3380ee77313f3cebe7&auto=format&fit=crop&w=1050&q=80",
+                            "subtitle": "Dirección",
+                            "buttons": [
+                                {
+                                    "title": "Ver en el mapa",
+                                    "type": "web_url",
+                                    "url": "https://goo.gl/maps/kr9tge5WQWA2",
+                                    "webview_height_ratio": "full"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Fusagasugá",
+                            "image_url": "https://images.unsplash.com/photo-1535314003016-19fbc0546a8a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8517ffbae682087ef9edf97cca482860&auto=format&fit=crop&w=967&q=80",
+                            "subtitle": "Dirección",
+                            "buttons": [
+                                {
+                                    "title": "Ver en el mapa",
+                                    "type": "web_url",
+                                    "url": "https://goo.gl/maps/gDf193qhr1B2",
+                                    "webview_height_ratio": "tall"
+                                }
+                            ]
+                        },
                     ]
                 }
             }
