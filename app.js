@@ -51,12 +51,12 @@ function handleEvent(senderId, event) {
 /* Validar que el mensaje sea texto */
 function handleMessage(senderId, event) {
     if(event.text){
-        //defaultMessage(senderId);
+        defaultMessage(senderId);
         //messageImage(senderId);
         //contactSupport(senderId);
         //showLocations(senderId)
         //receipt(senderId);
-        getLocation(senderId);
+        //getLocation(senderId);
     }else if (event.attachments) {
         handleAttachments(senderId, event);
     }
@@ -126,7 +126,7 @@ function handleAttachments(senderId, event) {
             break;
         case "location":
             console.log(JSON.stringify(event))
-            //receipt(senderId);
+            receipt(senderId);
     
         default:
             break;
