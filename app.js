@@ -50,13 +50,19 @@ function handleEvent(senderId, event) {
 
 /* Validar que el mensaje sea texto */
 function handleMessage(senderId, event) {
-    if(event.text){
+    if (event.text == 'Busco a Fredy') {
+        contactSupport(senderId);
+
+    }else if (event.text == 'Quiero Conversar') {
+        showTopics(senderId);
+
+    }else if (event.text){
         defaultMessage(senderId);
         //messageImage(senderId);
-        //contactSupport(senderId);
         //showLocations(senderId)
         //receipt(senderId);
         //getLocation(senderId);
+
     }else if (event.attachments) {
         handleAttachments(senderId, event);
     }
@@ -73,15 +79,41 @@ function defaultMessage(senderId) {
             "quick_replies": [
                 {
                     "content_type": "text",
-                    "title": "¿Buscas a Fredy?",
+                    "title": "Busco a Fredy",
                     "payload": "CARER_PAYLOAD"
                 },
                 {
                     "content_type": "text",
-                    "title": "¿Quieres conversar?",
+                    "title": "Quiero Conversar",
                     "payload": "TALK_PAYLOAD"
                 }
             ]
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function sportsMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "A los gatos nos gustan mucho los deportes :) !",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function catsMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "A los gatos nos gustan mucho los deportes :) !",
         }
     }
     senderActions(senderId)
@@ -94,15 +126,19 @@ function handlePostback(senderId, payload) {
         case "GET_STARTED_POLLY":
             console.log(payload)
             break;
-        /* Aún no funciona */
-        case "TALK_PAYLOAD":
-            showTopics(senderId);
-            break;
         case "CHATBOTS_PAYLOAD":
             showBots(senderId);
             break;
         case "PERSONALBOT_PAYLOAD":
             botMood(senderId);
+            break;
+        case "CATS_PAYLOAD":
+            messageImage(senderId);
+            sportsMessage(senderId);
+            break;
+        case "SPORTS_PAYLOAD":
+            messageImage(senderId);
+            catsMessage(senderId);
             break;
         default:
             break;
