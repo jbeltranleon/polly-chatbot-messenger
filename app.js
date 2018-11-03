@@ -54,7 +54,8 @@ function handleMessage(senderId, event) {
         //defaultMessage(senderId);
         //messageImage(senderId);
         //contactSupport(senderId);
-        showLocations(senderId)
+        //showLocations(senderId)
+        receipt(senderId);
     }else if (event.attachments) {
         handleAttachments(senderId, event);
     }
@@ -374,6 +375,68 @@ function botMood(senderId) {
         }
     }
     callSendApi(messageData);
+}
+
+function receipt(senderId){
+    const messageData = {
+        "recipient": {
+            "id": senderId
+        },
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload":{
+                    "template_type": "receipt",
+                    "recipient_name": "Jhon Beltrán",
+                    "order_number": "1234565432",
+                    "currency": "COP",
+                    "payment_method": "Efectivo",
+                    "order_url": "https://jbeltranleon.com/order/123",
+                    "timestamp": "12344234",
+                    "address": {
+                        "street_1": "Universidad de Cundinamarca",
+                        "street_2": "---",
+                        "city": "Fusagasugá",
+                        "postal_code": "272211",
+                        "state": "Cundinamarca",
+                        "country": "Colombia"
+                    },
+                    "summary": {
+                        "subtotal": 3000000,
+                        "shipping_cost": 0,
+                        "total_tax": 40000,
+                        "total_cost": 3040000
+                    },
+                    "adjustments": [
+                        {
+                            "name": "Cliente Frecuente",
+                            "amount": 40000
+                        }
+                    ],
+                    "elements": [
+                        {
+                            "title": "Chat Bot Personal",
+                            "subtitle": "Subtitulo",
+                            "quantity": 1,
+                            "price": 3000000,
+                            "currency": "COP",
+                            "image_url": "https://images.unsplash.com/photo-1494959764136-6be9eb3c261e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d56d83667dc38f36ed4bd763b01fc1f0&auto=format&fit=crop&w=1050&q=80"
+                        },
+                        {
+                            "title": "Chat Bot Personal",
+                            "subtitle": "Subtitulo",
+                            "quantity": 2,
+                            "price": 6000000,
+                            "currency": "COP",
+                            "image_url": "https://images.unsplash.com/photo-1494959764136-6be9eb3c261e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d56d83667dc38f36ed4bd763b01fc1f0&auto=format&fit=crop&w=1050&q=80"
+                        }
+                    ]
+
+                }
+            }
+        }
+    }
+    callSendApi(messageData)
 }
 
 /* Log de Funcionaminto */
