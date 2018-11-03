@@ -113,7 +113,7 @@ function catsMessage(senderId) {
             "id": senderId
         },
         "message":{
-            "text": "A los gatos nos gustan mucho los deportes :) !",
+            "text": "Se que sabes que somos los mejores :) !",
         }
     }
     senderActions(senderId)
@@ -134,11 +134,11 @@ function handlePostback(senderId, payload) {
             break;
         case "CATS_PAYLOAD":
             messageImage(senderId);
-            sportsMessage(senderId);
+            catsMessage(senderId);
             break;
         case "SPORTS_PAYLOAD":
             messageImage(senderId);
-            catsMessage(senderId);
+            sportsMessage(senderId);
             break;
         default:
             break;
