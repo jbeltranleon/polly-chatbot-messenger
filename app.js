@@ -55,7 +55,8 @@ function handleMessage(senderId, event) {
         //messageImage(senderId);
         //contactSupport(senderId);
         //showLocations(senderId)
-        receipt(senderId);
+        //receipt(senderId);
+        getLocation(senderId);
     }else if (event.attachments) {
         handleAttachments(senderId, event);
     }
@@ -123,6 +124,9 @@ function handleAttachments(senderId, event) {
         case "file":
             console.log(attachment_type);
             break;
+        case "location":
+            console.log(JSON.stringify(event))
+            //receipt(senderId);
     
         default:
             break;
@@ -437,6 +441,23 @@ function receipt(senderId){
         }
     }
     callSendApi(messageData)
+}
+
+function getLocation(senderId){
+    const messageData = {
+        "recipient": {
+            "id": senderId
+        },
+        "message": {
+            "text": "Ahora ¿Puedes proporcionarnos tu ubicación?",
+            "quick_replies": [
+                {
+                    "content_type": "location"
+                }
+            ]
+        }
+    }
+    callSendApi(messageData);
 }
 
 /* Log de Funcionaminto */
