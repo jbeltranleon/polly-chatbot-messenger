@@ -123,7 +123,7 @@ function handleMessage(senderId, event) {
         contactSupport(senderId);
     }else if (event.text.toLowerCase() == 'busco información') {
         showTopics(senderId);
-    }else if (event.text.toLowerCase() == '¡necesito uno!') {
+    }else if (event.text.toLowerCase() == '¿Cuales me ofrecen?') {
         showBots(senderId);
     }else if (event.text.toLowerCase() == 'contacto') {
         contactSupport(senderId);
@@ -405,7 +405,7 @@ function botsMessage(senderId) {
             "quick_replies": [
                 {
                     "content_type": "text",
-                    "title": "¡Necesito uno!",
+                    "title": "¿Cuales me ofrecen?",
                     "payload": "CHATBOTS_PAYLOAD"
                 },
                 {
