@@ -119,9 +119,9 @@ function handleMessage(senderId, event) {
         sentimentMessage(senderId);
     }
     
-    if (event.text == 'Llamar a Fredy') {
+    if (event.text.toLowerCase() == 'llamar a fredy') {
         contactSupport(senderId);
-    }else if (event.text == 'Quiero Conversar') {
+    }else if (event.text.toLowerCase() == 'quiero conversar') {
         showTopics(senderId);
 
     }else if (event.text){
