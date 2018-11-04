@@ -348,6 +348,7 @@ function handlePostback(senderId, payload) {
             botMood(senderId);
             break;
         case "WTF_BOTS_PAYLOAD":
+            console.log("Watafaaaaaaaaaaa")
             botsMessage(senderId);
             break;
         case "SPORTS_PAYLOAD":
