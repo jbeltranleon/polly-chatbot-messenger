@@ -121,7 +121,7 @@ function handleMessage(senderId, event) {
     
     if (event.text.toLowerCase() == 'llamar a fredy') {
         contactSupport(senderId);
-    }else if (event.text.toLowerCase() == 'quiero conversar') {
+    }else if (event.text.toLowerCase() == 'busco información') {
         showTopics(senderId);
 
     }else if (event.text){
@@ -152,7 +152,7 @@ function defaultMessage(senderId) {
                 },
                 {
                     "content_type": "text",
-                    "title": "Quiero Conversar",
+                    "title": "Busco Información",
                     "payload": "TALK_PAYLOAD"
                 }
             ]
