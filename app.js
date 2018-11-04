@@ -411,7 +411,7 @@ function botsMessage(senderId) {
                         {
                             "title": "Un Chatbot",
                             "image_url": "https://images.unsplash.com/photo-1536312975196-2f175c3c0eed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=978ec18ef28f082f977583c95046d58f&auto=format&fit=crop&w=643&q=80",
-                            "subtitle": "Es un programa informático con el que es posible mantener una conversación, tanto si queremos pedirle algún tipo de información o que lleve a cabo una acción.",
+                            "subtitle": "Leer Articulo",
                             "buttons": [
                                 {
                                     "title": "Sabér más",
