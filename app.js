@@ -119,7 +119,7 @@ function handleMessage(senderId, event) {
         sentimentMessage(senderId);
     }
     
-    if (event.text == 'Busco a Fredy') {
+    if (event.text == 'Quiero hablar con Fredy') {
         contactSupport(senderId);
     }else if (event.text == 'Quiero Conversar') {
         showTopics(senderId);
@@ -147,7 +147,7 @@ function defaultMessage(senderId) {
             "quick_replies": [
                 {
                     "content_type": "text",
-                    "title": "Busco a Fredy",
+                    "title": "Quiero hablar con Fredy",
                     "payload": "CARER_PAYLOAD"
                 },
                 {
