@@ -56,9 +56,9 @@ function firstEntity(nlp, name) {
 
 /* Validar que el mensaje sea texto */
 function handleMessage(senderId, event) {
-    const greeting = firstEntity(event.nlp, 'greetings');
-    if (greeting && greeting.confidence > 0.8) {
-        console.log(greeting)
+    const email = firstEntity(event.nlp, 'email');
+    if (email && email.confidence > 0.8) {
+        console.log(email)
         console.log("Saludando ando")
     } 
     if (event.text == 'Busco a Fredy') {
