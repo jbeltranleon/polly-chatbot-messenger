@@ -421,19 +421,7 @@ function botsMessage(senderId) {
                                 }
                             ]
                         },
-                        {
-                            "title": "Fusagasugá",
-                            "image_url": "https://images.unsplash.com/photo-1535314003016-19fbc0546a8a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8517ffbae682087ef9edf97cca482860&auto=format&fit=crop&w=967&q=80",
-                            "subtitle": "Dirección",
-                            "buttons": [
-                                {
-                                    "title": "Ver en el mapa",
-                                    "type": "web_url",
-                                    "url": "https://goo.gl/maps/gDf193qhr1B2",
-                                    "webview_height_ratio": "tall"
-                                }
-                            ]
-                        },
+                        
                     ]
                 }
             }
