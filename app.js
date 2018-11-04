@@ -423,19 +423,7 @@ function botsMessage(senderId) {
                         },
                     ]
                 }
-            },
-            "quick_replies": [
-                {
-                    "content_type": "text",
-                    "title": "¿Cuales me ofrecen?",
-                    "payload": "CHATBOTS_PAYLOAD"
-                },
-                {
-                    "content_type": "text",
-                    "title": "Contacto",
-                    "payload": "CONTACT_PAYLOAD"
-                }
-            ]
+            }
         }
     }
     callSendApi(messageData);
