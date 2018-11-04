@@ -409,27 +409,14 @@ function botsMessage(senderId) {
                     "top_element_style": "large",
                     "elements": [
                         {
-                            "title": "Bogotá",
-                            "image_url": "https://images.unsplash.com/photo-1536334906170-ffa95819c4d4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bb92a6ff6c11ce3380ee77313f3cebe7&auto=format&fit=crop&w=1050&q=80",
-                            "subtitle": "Dirección",
+                            "title": "Un Chatbot",
+                            "image_url": "https://images.unsplash.com/photo-1536312975196-2f175c3c0eed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=978ec18ef28f082f977583c95046d58f&auto=format&fit=crop&w=643&q=80",
+                            "subtitle": "Es un programa informático con el que es posible mantener una conversación, tanto si queremos pedirle algún tipo de información o que lleve a cabo una acción.",
                             "buttons": [
                                 {
-                                    "title": "Ver en el mapa",
+                                    "title": "Sabér más",
                                     "type": "web_url",
-                                    "url": "https://goo.gl/maps/kr9tge5WQWA2",
-                                    "webview_height_ratio": "full"
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Fusagasugá",
-                            "image_url": "https://images.unsplash.com/photo-1535314003016-19fbc0546a8a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8517ffbae682087ef9edf97cca482860&auto=format&fit=crop&w=967&q=80",
-                            "subtitle": "Dirección",
-                            "buttons": [
-                                {
-                                    "title": "Ver en el mapa",
-                                    "type": "web_url",
-                                    "url": "https://goo.gl/maps/gDf193qhr1B2",
+                                    "url": "https://www.40defiebre.com/que-es/chatbot/",
                                     "webview_height_ratio": "tall"
                                 }
                             ]
