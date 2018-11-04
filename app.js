@@ -179,6 +179,7 @@ function handlePostback(senderId, payload) {
     switch (payload) {
         case "GET_STARTED_POLLY":
             console.log(payload)
+            defaultMessage(senderId)
             break;
         case "CHATBOTS_PAYLOAD":
             showBots(senderId);
