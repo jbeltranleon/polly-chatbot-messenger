@@ -416,7 +416,7 @@ function botsMessage(senderId) {
                                 {
                                     "title": "Sabér más",
                                     "type": "web_url",
-                                    "url": "https://www.40defiebre.com/que-es/chatbot/",
+                                    "url": "https://goo.gl/maps/kr9tge5WQWA2",
                                     "webview_height_ratio": "tall"
                                 }
                             ]
