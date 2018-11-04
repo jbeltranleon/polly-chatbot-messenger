@@ -371,11 +371,9 @@ function handlePostback(senderId, payload) {
             botMood(senderId);
             break;
         case "WTF_BOTS_PAYLOAD":
-            messageImage(senderId);
             botsMessage(senderId);
             break;
         case "SPORTS_PAYLOAD":
-            messageImage(senderId);
             sportsMessage(senderId);
             break;
         case "CONTACT_PAYLOAD":
@@ -389,6 +387,7 @@ function handleAttachments(senderId, event) {
     let attachment_type = event.attachments[0].type;
     switch (attachment_type) {
         case "image":
+            messageImage(senderId);
             console.log(attachment_type);
             break;
         case "video":
