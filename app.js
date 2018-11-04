@@ -331,13 +331,14 @@ function sportsMessage(senderId) {
     callSendApi(messageData);
 }
 
-function catsMessage(senderId) {
+function botsMessage(senderId) {
     const messageData = {
         "recipient":{
             "id": senderId
         },
         "message":{
-            "text": "Se que sabes que somos los mejores :) !",
+            "text": "Un chatbot es un programa informático con el que es posible mantener una conversación... https://www.40defiebre.com/que-es/chatbot/",
+            
         }
     }
     senderActions(senderId)
@@ -357,9 +358,9 @@ function handlePostback(senderId, payload) {
         case "PERSONALBOT_PAYLOAD":
             botMood(senderId);
             break;
-        case "CATS_PAYLOAD":
+        case "WTF_BOTS_PAYLOAD":
             messageImage(senderId);
-            catsMessage(senderId);
+            botsMessage(senderId);
             break;
         case "SPORTS_PAYLOAD":
             messageImage(senderId);
@@ -436,14 +437,14 @@ function showTopics(senderId) {
                     "template_type": "generic",
                     "elements": [
                         {
-                            "title": "Gatos",
-                            "subtitle": "¡Hablemos de los mejores!",
-                            "image_url": "https://images.unsplash.com/photo-1517331156700-3c241d2b4d83?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1202328eba9feb2db5d77a95f0938672&auto=format&fit=crop&w=748&q=80",
+                            "title": "Chat Bot",
+                            "subtitle": "¿Que es un Chatbot?",
+                            "image_url": "https://images.unsplash.com/photo-1531732960586-947a95bbc438?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=149776eddc5673a2499fab0f722dbc48&auto=format&fit=crop&w=511&q=80",
                             "buttons": [
                                 {
                                     "type": "postback",
-                                    "title": "Hablemos de Gatos",
-                                    "payload": "CATS_PAYLOAD"
+                                    "title": "Descubre",
+                                    "payload": "WTF_BOTS_PAYLOAD"
                                 }
                             ]
                         },
