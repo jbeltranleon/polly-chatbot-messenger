@@ -58,12 +58,53 @@ function firstEntity(nlp, name) {
 function handleMessage(senderId, event) {
     const email = firstEntity(event.nlp, 'email');
     const phone_number = firstEntity(event.nlp, 'phone_number');
+    const date_time = firstEntity(event.nlp, 'datetime');
+    const amount_of_money = firstEntity(event.nlp, 'amount_of_money');
+    const distance = firstEntity(event.nlp, 'distance');
+    const quantity = firstEntity(event.nlp, 'quantity');
+    const temperature = firstEntity(event.nlp, 'temperature');
+    const volume = firstEntity(event.nlp, 'volume');
+    const location = firstEntity(event.nlp, 'location');
+    const duration = firstEntity(event.nlp, 'duration');
+    const url = firstEntity(event.nlp, 'url');
+    const sentiment = firstEntity(event.nlp, 'sentiment');
+
     if (email && email.confidence > 0.8) {
         console.log(email)
         console.log("Correo electrónico")
     }else if (phone_number && phone_number.confidence > 0.8) {
         console.log(phone_number)
         console.log("Número de Telefono")
+    }else if (date_time && date_time.confidence > 0.8) {
+        console.log(date_time)
+        console.log("Fecha y Hora")
+    }else if (amount_of_money && amount_of_money.confidence > 0.8) {
+        console.log(amount_of_money)
+        console.log("Dinero")
+    }else if (distance && distance.confidence > 0.8) {
+        console.log(distance)
+        console.log("Distancia")
+    }else if (quantity && quantity.confidence > 0.8) {
+        console.log(quantity)
+        console.log("Cantidad")
+    }else if (temperature && temperature.confidence > 0.8) {
+        console.log(temperature)
+        console.log("Temperatura")
+    }else if (volume && volume.confidence > 0.8) {
+        console.log(volume)
+        console.log("Volumen")
+    }else if (location && location.confidence > 0.8) {
+        console.log(location)
+        console.log("Ubicación")
+    }else if (duration && duration.confidence > 0.8) {
+        console.log(duration)
+        console.log("Duración")
+    }else if (url && url.confidence > 0.8) {
+        console.log(url)
+        console.log("Sitio Web")
+    }else if (sentiment && sentiment.confidence > 0.8) {
+        console.log(sentiment)
+        console.log("Sentimiento")
     }else if (event.text == 'Busco a Fredy') {
         contactSupport(senderId);
     }else if (event.text == 'Quiero Conversar') {
