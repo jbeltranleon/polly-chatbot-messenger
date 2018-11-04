@@ -77,7 +77,7 @@ function handleMessage(senderId, event) {
         console.log(phone_number);
         console.log("Número de Telefono");
         phoneMessage(senderId);
-    }else if (date_time && date_time.confidence > 0.8) {
+    }else if (date_time && date_time.confidence > 0.85) {
         console.log(date_time);
         console.log("Fecha y Hora");
         datetimeMessage(senderId);
