@@ -420,7 +420,7 @@ function botsMessage(senderId) {
                                     "webview_height_ratio": "tall"
                                 }
                             ]
-                        },
+                        }
                     ]
                 }
             }
