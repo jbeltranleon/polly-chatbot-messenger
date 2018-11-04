@@ -338,6 +338,18 @@ function botsMessage(senderId) {
         },
         "message":{
             "text": "Un chatbot es un programa informático con el que es posible mantener una conversación... https://www.40defiebre.com/que-es/chatbot/",
+            "quick_replies": [
+                {
+                    "content_type": "text",
+                    "title": "¡Necesito uno!",
+                    "payload": "CHATBOTS_PAYLOAD"
+                },
+                {
+                    "content_type": "text",
+                    "title": "Contacto",
+                    "payload": "CONTACT_PAYLOAD"
+                }
+            ]
             
         }
     }
@@ -366,6 +378,8 @@ function handlePostback(senderId, payload) {
             messageImage(senderId);
             sportsMessage(senderId);
             break;
+        case "CONTACT_PAYLOAD":
+            contactSupport(senderId);
         default:
             break;
     }
@@ -438,12 +452,12 @@ function showTopics(senderId) {
                     "elements": [
                         {
                             "title": "Chat Bot",
-                            "subtitle": "¿Que es un Chatbot?",
+                            "subtitle": "¿Necesito uno?",
                             "image_url": "https://images.unsplash.com/photo-1531732960586-947a95bbc438?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=149776eddc5673a2499fab0f722dbc48&auto=format&fit=crop&w=511&q=80",
                             "buttons": [
                                 {
                                     "type": "postback",
-                                    "title": "Descubre",
+                                    "title": "¿Que es un Chatbot?",
                                     "payload": "WTF_BOTS_PAYLOAD"
                                 }
                             ]
