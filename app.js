@@ -57,13 +57,15 @@ function firstEntity(nlp, name) {
 /* Validar que el mensaje sea texto */
 function handleMessage(senderId, event) {
     const email = firstEntity(event.nlp, 'email');
+    const phone_number = firstEntity(event.nlp, 'phone_number');
     if (email && email.confidence > 0.8) {
         console.log(email)
         console.log("Saludando ando")
-    } 
-    if (event.text == 'Busco a Fredy') {
+    }else if (phone_number && phone_number.confidence > 0.8) {
+        console.log(phone_number)
+        console.log("Saludando ando")
+    }else if (event.text == 'Busco a Fredy') {
         contactSupport(senderId);
-
     }else if (event.text == 'Quiero Conversar') {
         showTopics(senderId);
 
