@@ -123,7 +123,10 @@ function handleMessage(senderId, event) {
         contactSupport(senderId);
     }else if (event.text.toLowerCase() == 'busco información') {
         showTopics(senderId);
-
+    }else if (event.text.toLowerCase() == '¡necesito uno!') {
+        showBots(senderId);
+    }else if (event.text.toLowerCase() == 'contacto') {
+        contactSupport(senderId);
     }else if (event.text){
         defaultMessage(senderId);
         //messageImage(senderId);
@@ -331,32 +334,6 @@ function sportsMessage(senderId) {
     callSendApi(messageData);
 }
 
-function botsMessage(senderId) {
-    const messageData = {
-        "recipient":{
-            "id": senderId
-        },
-        "message":{
-            "text": "Un chatbot es un programa informático con el que es posible mantener una conversación... https://www.40defiebre.com/que-es/chatbot/",
-            "quick_replies": [
-                {
-                    "content_type": "text",
-                    "title": "¡Necesito uno!",
-                    "payload": "CHATBOTS_PAYLOAD"
-                },
-                {
-                    "content_type": "text",
-                    "title": "Contacto",
-                    "payload": "CONTACT_PAYLOAD"
-                }
-            ]
-            
-        }
-    }
-    senderActions(senderId)
-    callSendApi(messageData);
-}
-
 function handlePostback(senderId, payload) {
     console.log(payload)
     switch (payload) {
@@ -415,6 +392,32 @@ function senderActions(senderId) {
         },
         "sender_action": "typing_on"
     }
+    callSendApi(messageData);
+}
+
+function botsMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Un chatbot es un programa informático con el que es posible mantener una conversación... https://www.40defiebre.com/que-es/chatbot/",
+            "quick_replies": [
+                {
+                    "content_type": "text",
+                    "title": "¡Necesito uno!",
+                    "payload": "CHATBOTS_PAYLOAD"
+                },
+                {
+                    "content_type": "text",
+                    "title": "Contacto",
+                    "payload": "CONTACT_PAYLOAD"
+                }
+            ]
+            
+        }
+    }
+    senderActions(senderId)
     callSendApi(messageData);
 }
 
