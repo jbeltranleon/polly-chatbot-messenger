@@ -56,9 +56,10 @@ function firstEntity(nlp, name) {
 
 /* Validar que el mensaje sea texto */
 function handleMessage(senderId, event) {
-    if (event.nlp) {
-        console.log("NLP");
-    }
+    const greeting = firstEntity(event.nlp, 'greetings');
+    if (greeting && greeting.confidence > 0.8) {
+        console.log(greeting)
+    } 
     if (event.text == 'Busco a Fredy') {
         contactSupport(senderId);
 
