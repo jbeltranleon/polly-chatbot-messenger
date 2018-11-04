@@ -70,41 +70,53 @@ function handleMessage(senderId, event) {
     const sentiment = firstEntity(event.nlp, 'sentiment');
 
     if (email && email.confidence > 0.8) {
-        console.log(email)
-        console.log("Correo electrónico")
+        console.log(email);
+        console.log("Correo electrónico");
+        emailMessage(senderId);
     }else if (phone_number && phone_number.confidence > 0.8) {
-        console.log(phone_number)
-        console.log("Número de Telefono")
+        console.log(phone_number);
+        console.log("Número de Telefono");
+        phoneMessage(senderId);
     }else if (date_time && date_time.confidence > 0.8) {
-        console.log(date_time)
-        console.log("Fecha y Hora")
+        console.log(date_time);
+        console.log("Fecha y Hora");
+        datetimeMessage(senderId);
     }else if (amount_of_money && amount_of_money.confidence > 0.8) {
-        console.log(amount_of_money)
-        console.log("Dinero")
+        console.log(amount_of_money);
+        console.log("Dinero");
+        moneyMessage(senderId);
     }else if (distance && distance.confidence > 0.8) {
-        console.log(distance)
-        console.log("Distancia")
+        console.log(distance);
+        console.log("Distancia");
+        distanceMessage(senderId);
     }else if (quantity && quantity.confidence > 0.8) {
-        console.log(quantity)
-        console.log("Cantidad")
+        console.log(quantity);
+        console.log("Cantidad");
+        quantityMessage(senderId);
     }else if (temperature && temperature.confidence > 0.8) {
-        console.log(temperature)
-        console.log("Temperatura")
+        console.log(temperature);
+        console.log("Temperatura");
+        temperatureMessage(senderId);
     }else if (volume && volume.confidence > 0.8) {
-        console.log(volume)
-        console.log("Volumen")
+        console.log(volume);
+        console.log("Volumen");
+        volumeMessage(senderId);
     }else if (location && location.confidence > 0.8) {
-        console.log(location)
-        console.log("Ubicación")
+        console.log(location);
+        console.log("Ubicación");
+        locationMessage(senderId);
     }else if (duration && duration.confidence > 0.8) {
-        console.log(duration)
-        console.log("Duración")
+        console.log(duration);
+        console.log("Duración");
+        durationMessage(senderId);
     }else if (url && url.confidence > 0.8) {
-        console.log(url)
-        console.log("Sitio Web")
+        console.log(url);
+        console.log("Sitio Web");
+        urlMessage(senderId);
     }else if (sentiment && sentiment.confidence > 0.8) {
-        console.log(sentiment)
-        console.log("Sentimiento")
+        console.log(sentiment);
+        console.log("Sentimiento");
+        sentimentMessage(senderId);
     }else if (event.text == 'Busco a Fredy') {
         contactSupport(senderId);
     }else if (event.text == 'Quiero Conversar') {
@@ -142,6 +154,162 @@ function defaultMessage(senderId) {
                     "payload": "TALK_PAYLOAD"
                 }
             ]
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function datetimeMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Agendaré esa fecha en mi calendario imaginario.",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function moneyMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Billete, lucas, ligas!",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function phoneMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "No nos llames, nosotros te llamamos!",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function emailMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "No habia un correo un poco mas decente?",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function distanceMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Eso queda re lejos!",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function quantityMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "No será mucho pan?",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function temperatureMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Agradable temperatura!",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function volumeMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Hable mas fuerte que tengo una toalla!",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function locationMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Se puede llegar en taxi?",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function durationMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Parece demaciado!",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function urlMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Quizá mas tarde la vea, quizá no!",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function sentimentMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Ajá, ok :) ",
         }
     }
     senderActions(senderId)
