@@ -117,7 +117,9 @@ function handleMessage(senderId, event) {
         console.log(sentiment);
         console.log("Sentimiento");
         sentimentMessage(senderId);
-    }else if (event.text == 'Busco a Fredy') {
+    }
+    
+    if (event.text == 'Busco a Fredy') {
         contactSupport(senderId);
     }else if (event.text == 'Quiero Conversar') {
         showTopics(senderId);
