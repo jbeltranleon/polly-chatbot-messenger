@@ -48,8 +48,17 @@ function handleEvent(senderId, event) {
     }
 }
 
+/* ---- NLP ---- */
+
+function firstEntity(nlp, name) {
+    return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
+}
+
 /* Validar que el mensaje sea texto */
 function handleMessage(senderId, event) {
+    if (event.nlp) {
+        console.log("NLP");
+    }
     if (event.text == 'Busco a Fredy') {
         contactSupport(senderId);
 
