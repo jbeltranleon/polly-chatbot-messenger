@@ -520,7 +520,7 @@ function contactSupport(senderId) {
                 "type": "template",
                 "payload":{
                     "template_type": "button",
-                    "text": "¡Así que necesitas soporte! ¿Quieres llamarnos?",
+                    "text": "Si Fredy no te contesta podemos seguir chateando... 🐱",
                     "buttons": [
                         {
                             "type": "phone_number",
