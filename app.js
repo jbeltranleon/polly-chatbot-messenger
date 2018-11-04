@@ -400,8 +400,29 @@ function botsMessage(senderId) {
         "recipient":{
             "id": senderId
         },
-        "message":{
-            "text": "Un chatbot es un programa informático con el que es posible mantener una conversación... https://www.40defiebre.com/que-es/chatbot/",
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "list",
+                    "top_element_style": "large",
+                    "elements": [
+                        {
+                            "title": "Un chatbot",
+                            "image_url": "https://images.unsplash.com/photo-1536312975196-2f175c3c0eed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=978ec18ef28f082f977583c95046d58f&auto=format&fit=crop&w=643&q=80",
+                            "subtitle": "Es un programa informático con el que es posible mantener una conversación",
+                            "buttons": [
+                                {
+                                    "title": "Leer más",
+                                    "type": "web_url",
+                                    "url": "https://www.40defiebre.com/que-es/chatbot/",
+                                    "webview_height_ratio": "tall"
+                                }
+                            ]
+                        },
+                    ]
+                }
+            },
             "quick_replies": [
                 {
                     "content_type": "text",
@@ -414,10 +435,8 @@ function botsMessage(senderId) {
                     "payload": "CONTACT_PAYLOAD"
                 }
             ]
-            
         }
     }
-    senderActions(senderId)
     callSendApi(messageData);
 }
 
