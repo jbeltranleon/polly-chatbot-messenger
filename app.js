@@ -68,7 +68,7 @@ function handleMessage(senderId, event) {
     const duration = firstEntity(event.nlp, 'duration');
     const url = firstEntity(event.nlp, 'url');
     const sentiment = firstEntity(event.nlp, 'sentiment');
-    const intent = firstEntity(event.nlp, 'intent');
+    const greeting = firstEntity(event.nlp, 'greeting');
 
 
     if (email && email.confidence > 0.8) {
@@ -120,9 +120,9 @@ function handleMessage(senderId, event) {
         console.log("Sentimiento");
         sentimentMessage(senderId);
     }
-    else if (intent && intent.confidence > 0.8) {
-        console.log(intent);
-        console.log("Intent");
+    else if (greeting && greeting.confidence > 0.8) {
+        console.log(greeting);
+        console.log("greeting");
         sentimentMessage(senderId);
     }
     
@@ -135,7 +135,8 @@ function handleMessage(senderId, event) {
     }else if (event.text.toLowerCase() == 'contacto') {
         contactSupport(senderId);
     }else if (event.text){
-        defaultMessage(senderId);
+        /*Message*/
+        //defaultMessage(senderId);
         //messageImage(senderId);
         //showLocations(senderId)
         //receipt(senderId);
