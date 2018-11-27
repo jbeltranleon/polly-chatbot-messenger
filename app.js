@@ -408,32 +408,11 @@ function botsMessage(senderId) {
         "recipient":{
             "id": senderId
         },
-        "message": {
-            "attachment": {
-                "type": "template",
-                "payload": {
-                    "template_type": "list",
-                    "top_element_style": "large",
-                    "elements": [
-                        {
-                            "title": "Un Chatbot",
-                            "image_url": "https://images.unsplash.com/photo-1536334906170-ffa95819c4d4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bb92a6ff6c11ce3380ee77313f3cebe7&auto=format&fit=crop&w=1050&q=80",
-                            "subtitle": "Es...",
-                            "buttons": [
-                                {
-                                    "title": "Ver en el mapa",
-                                    "type": "web_url",
-                                    "url": "https://goo.gl/maps/kr9tge5WQWA2",
-                                    "webview_height_ratio": "full"
-                                }
-                            ]
-                        },
-                        
-                    ]
-                }
-            }
+        "message":{
+            "text": "Los bots son quienes van a remplazarte en el trabajo !",
         }
     }
+    senderActions(senderId)
     callSendApi(messageData);
 }
 
