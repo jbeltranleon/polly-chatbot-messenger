@@ -68,6 +68,8 @@ function handleMessage(senderId, event) {
     const duration = firstEntity(event.nlp, 'duration');
     const url = firstEntity(event.nlp, 'url');
     const sentiment = firstEntity(event.nlp, 'sentiment');
+    const intent = firstEntity(event.nlp, 'intent');
+
 
     if (email && email.confidence > 0.8) {
         console.log(email);
@@ -118,6 +120,11 @@ function handleMessage(senderId, event) {
         console.log("Sentimiento");
         sentimentMessage(senderId);
     }
+    else if (intent && intent.confidence > 0.8) {
+        console.log(intent);
+        console.log("Intent");
+        sentimentMessage(senderId);
+    }
     
     if (event.text.toLowerCase() == 'llamar a fredy') {
         contactSupport(senderId);
@@ -146,7 +153,7 @@ function defaultMessage(senderId) {
             "id": senderId
         },
         "message":{
-            "text": "Hola Soy el Chat bot de Polly :) !",
+            "text": "Hola mi nombre es Polly :) !",
             "quick_replies": [
                 {
                     "content_type": "text",
