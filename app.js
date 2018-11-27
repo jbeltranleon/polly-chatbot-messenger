@@ -69,6 +69,7 @@ function handleMessage(senderId, event) {
     const url = firstEntity(event.nlp, 'url');
     const sentiment = firstEntity(event.nlp, 'sentiment');
     const greeting = firstEntity(event.nlp, 'greeting');
+    const ask_sentiment = firstEntity(event.nlp, 'ask_sentiment');
 
 
     if (email && email.confidence > 0.8) {
@@ -123,7 +124,12 @@ function handleMessage(senderId, event) {
     else if (greeting && greeting.confidence > 0.8) {
         console.log(greeting);
         console.log("greeting");
-        sentimentMessage(senderId);
+        defaultMessage(senderId);
+    }
+    else if (ask_sentiment && ask_sentiment.confidence > 0.8) {
+        console.log(ask_sentiment);
+        console.log("ask_sentiment");
+        feelingMessage(senderId);
     }
     
     if (event.text.toLowerCase() == 'llamar a fredy') {
@@ -323,6 +329,19 @@ function sentimentMessage(senderId) {
         },
         "message":{
             "text": "Ajá, ok :) ",
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function feelingMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Puej bien, tú cómo estás?",
         }
     }
     senderActions(senderId)
