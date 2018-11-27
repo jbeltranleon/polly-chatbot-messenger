@@ -395,7 +395,7 @@ function handlePostback(senderId, payload) {
             break;
         case "CONTACT_PAYLOAD":
             contactSupport(senderId);
-            
+
         //Revisión de captura de email
         case "BUSINESSBOT_PAYLOAD":
             getEmail(senderId);
@@ -777,7 +777,7 @@ function getEmail(senderId){
             "id": senderId
         },
         "message": {
-            "text": "Ahora ¿Puedes proporcionarnos tu ubicación?",
+            "text": "¿Cual es tu correo?",
             "quick_replies": [
                 {
                     "content_type": "user_email"
