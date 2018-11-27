@@ -328,7 +328,7 @@ function sentimentMessage(senderId) {
             "id": senderId
         },
         "message":{
-            "text": "Ajá, ok :) ",
+            "text": "Ajá, ok :) \n ¿Necesitas algo?",
         }
     }
     senderActions(senderId)
