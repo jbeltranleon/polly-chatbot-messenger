@@ -395,6 +395,12 @@ function handlePostback(senderId, payload) {
             break;
         case "CONTACT_PAYLOAD":
             contactSupport(senderId);
+            
+        //Revisión de captura de email
+        case "BUSINESSBOT_PAYLOAD":
+            getEmail(senderId);
+            break;
+            
         default:
             break;
     }
@@ -758,6 +764,23 @@ function getLocation(senderId){
             "quick_replies": [
                 {
                     "content_type": "location"
+                }
+            ]
+        }
+    }
+    callSendApi(messageData);
+}
+
+function getEmail(senderId){
+    const messageData = {
+        "recipient": {
+            "id": senderId
+        },
+        "message": {
+            "text": "Ahora ¿Puedes proporcionarnos tu ubicación?",
+            "quick_replies": [
+                {
+                    "content_type": "user_email"
                 }
             ]
         }
