@@ -77,7 +77,7 @@ function handleMessage(senderId, event) {
     if (email && email.confidence > 0.8) {
         console.log(email);
         console.log("Correo electrónico");
-        emailMessage(senderId);
+        emailMessage(senderId, event);
     }else if (phone_number && phone_number.confidence > 0.8) {
         console.log(phone_number);
         console.log("Número de Telefono");
@@ -231,12 +231,13 @@ function phoneMessage(senderId) {
 }
 
 function emailMessage(senderId) {
+    const messageText = event.message.text;
     const messageData = {
         "recipient":{
             "id": senderId
         },
         "message":{
-            "text": "No habia un correo un poco mas decente?",
+            "text": messageText + "No habia un correo un poco mas decente?",
         }
     }
     senderActions(senderId)
