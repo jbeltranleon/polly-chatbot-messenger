@@ -72,7 +72,7 @@ function handleMessage(senderId, event) {
     const ask_sentiment = firstEntity(event.nlp, 'ask_sentiment');
     const ask_bot = firstEntity(event.nlp, 'ask_bot');
     const buy_bot = firstEntity(event.nlp, 'buy_bot');
-    const messageText = event.message.text;
+    const messageText = event.text;
 
     if (email && email.confidence > 0.8) {
         console.log(email);
