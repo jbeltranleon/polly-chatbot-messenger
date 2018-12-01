@@ -230,7 +230,7 @@ function phoneMessage(senderId) {
     callSendApi(messageData);
 }
 
-function emailMessage(senderId) {
+function emailMessage(senderId, messageText) {
     
     const messageData = {
         "recipient":{
