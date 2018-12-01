@@ -72,12 +72,12 @@ function handleMessage(senderId, event) {
     const ask_sentiment = firstEntity(event.nlp, 'ask_sentiment');
     const ask_bot = firstEntity(event.nlp, 'ask_bot');
     const buy_bot = firstEntity(event.nlp, 'buy_bot');
-
+    const messageText = event.message.text;
 
     if (email && email.confidence > 0.8) {
         console.log(email);
         console.log("Correo electrónico");
-        emailMessage(senderId, event);
+        emailMessage(senderId, messageText);
     }else if (phone_number && phone_number.confidence > 0.8) {
         console.log(phone_number);
         console.log("Número de Telefono");
@@ -231,7 +231,7 @@ function phoneMessage(senderId) {
 }
 
 function emailMessage(senderId) {
-    const messageText = event.message.text;
+    
     const messageData = {
         "recipient":{
             "id": senderId
