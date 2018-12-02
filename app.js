@@ -154,6 +154,12 @@ function handleMessage(senderId, event) {
     else if (event.text.toLowerCase() == 'correo') {
         console.log("Correo");
         //break;
+    }else if (event.text.toLowerCase() == 'si, claro') {
+        console.log("Correo");
+        //break;
+    }else if (event.text.toLowerCase() == 'no, cúentame') {
+        console.log("Correo");
+        //break;
     }else {
         defaultMessage(senderId);
     }
