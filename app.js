@@ -147,7 +147,7 @@ function handleMessage(senderId, event) {
     //manychat
     else if (event.text.toLowerCase() == 'correo') {
         console.log("Correo");
-        break;
+        //break;
     }else {
         defaultMessage(senderId);
     }
