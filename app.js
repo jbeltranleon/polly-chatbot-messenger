@@ -72,7 +72,7 @@ function handleMessage(senderId, event) {
     const ask_sentiment = firstEntity(event.nlp, 'ask_sentiment');
     const ask_bot = firstEntity(event.nlp, 'ask_bot');
     const buy_bot = firstEntity(event.nlp, 'buy_bot');
-    const ask_product = firstEntity(event.nlp, 'ask_product');
+    const ask_products = firstEntity(event.nlp, 'ask_products');
     const messageText = event.text;
 
     if (email && email.confidence > 0.8) {
@@ -145,9 +145,9 @@ function handleMessage(senderId, event) {
         console.log("buy_bot");
         showBots(senderId);
     }
-    else if (ask_product && ask_product.confidence > 0.8) {
-        console.log(ask_product);
-        console.log("ask_product");
+    else if (ask_products && ask_products.confidence > 0.8) {
+        console.log(ask_products);
+        console.log("ask_products");
         giveContext(senderId);
     }
     //manychat
