@@ -154,10 +154,16 @@ function handleMessage(senderId, event) {
     else if (event.text.toLowerCase() == 'correo') {
         console.log("Correo");
         //break;
-    }else if (event.text.toLowerCase() == 'si') {
+    }else if (event.text.toLowerCase() == 'si, claro') {
         console.log("si");
         //break;
-    }else if (event.text.toLowerCase() == 'no') {
+    }else if (event.text.toLowerCase() == 'no, cúentame') {
+        console.log("no");
+        //break;
+    }else if (event.text.toLowerCase() == 'genial') {
+        console.log("si");
+        //break;
+    }else if (event.text.toLowerCase() == 'no, gracias') {
         console.log("no");
         //break;
     }else {
@@ -217,12 +223,12 @@ function giveContext(senderId) {
             "quick_replies": [
                 {
                     "content_type": "text",
-                    "title": "si",
+                    "title": "Si, claro",
                     "payload": "CALL_PAYLOAD"
                 },
                 {
                     "content_type": "text",
-                    "title": "no",
+                    "title": "No, cúentame",
                     "payload": "TALK_PAYLOAD"
                 }
             ]
