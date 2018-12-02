@@ -143,6 +143,8 @@ function handleMessage(senderId, event) {
         console.log(buy_bot);
         console.log("buy_bot");
         showBots(senderId);
+    }else {
+        defaultMessage(senderId);
     }
     
     if (event.text.toLowerCase() == 'llamar a fredy') {
@@ -153,14 +155,6 @@ function handleMessage(senderId, event) {
         showBots(senderId);
     }else if (event.text.toLowerCase() == 'contacto') {
         contactSupport(senderId);
-    }else if (event.text){
-        /*Message*/
-        defaultMessage(senderId);
-        //messageImage(senderId);
-        //showLocations(senderId)
-        //receipt(senderId);
-        //getLocation(senderId);
-
     }else if (event.attachments) {
         handleAttachments(senderId, event);
     }
@@ -405,7 +399,7 @@ function handlePostback(senderId, payload) {
     switch (payload) {
         case "GET_STARTED_POLLY":
             console.log(payload)
-            defaultMessage(senderId)
+            greetingMessage(senderId)
             break;
         case "CHATBOTS_PAYLOAD":
             showBots(senderId);
