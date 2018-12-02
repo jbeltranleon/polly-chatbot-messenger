@@ -126,7 +126,8 @@ function handleMessage(senderId, event) {
     else if (greeting && greeting.confidence > 0.8) {
         console.log(greeting);
         console.log("greeting");
-        defaultMessage(senderId);
+        //defaultMessage(senderId);
+        greetingMessage(senderId);
     }
     else if (ask_sentiment && ask_sentiment.confidence > 0.8) {
         console.log(ask_sentiment);
@@ -154,7 +155,7 @@ function handleMessage(senderId, event) {
         contactSupport(senderId);
     }else if (event.text){
         /*Message*/
-        //defaultMessage(senderId);
+        defaultMessage(senderId);
         //messageImage(senderId);
         //showLocations(senderId)
         //receipt(senderId);
@@ -172,7 +173,32 @@ function defaultMessage(senderId) {
             "id": senderId
         },
         "message":{
-            "text": "Hola mi nombre es Polly :) !",
+            "text": "¿Puedes decirlo de otra forma? No te entiendo",
+            "quick_replies": [
+                {
+                    "content_type": "text",
+                    "title": "Llamar a Fredy",
+                    "payload": "CARER_PAYLOAD"
+                },
+                {
+                    "content_type": "text",
+                    "title": "Busco Información",
+                    "payload": "TALK_PAYLOAD"
+                }
+            ]
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function greetingMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Hola de nuevo 🙄...",
             "quick_replies": [
                 {
                     "content_type": "text",
