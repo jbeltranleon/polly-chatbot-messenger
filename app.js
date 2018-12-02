@@ -328,7 +328,7 @@ function emailMessage(senderId, messageText) {
             "id": senderId
         },
         "message":{
-            "text": messageText + "No habia un correo un poco mas decente?",
+            "text": messageText + " No habia un correo un poco más decente?",
         }
     }
     senderActions(senderId)
