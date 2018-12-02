@@ -191,6 +191,31 @@ function defaultMessage(senderId) {
     callSendApi(messageData);
 }
 
+function startMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "Hola, mi nombre es Polly y Soy Chatbot! 🤖",
+            "quick_replies": [
+                {
+                    "content_type": "text",
+                    "title": "Llamar a Fredy",
+                    "payload": "CARER_PAYLOAD"
+                },
+                {
+                    "content_type": "text",
+                    "title": "Busco Información",
+                    "payload": "TALK_PAYLOAD"
+                }
+            ]
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
 function greetingMessage(senderId) {
     const messageData = {
         "recipient":{
@@ -404,7 +429,7 @@ function handlePostback(senderId, payload) {
     switch (payload) {
         case "GET_STARTED_POLLY":
             console.log(payload)
-            greetingMessage(senderId)
+            startMessage(senderId)
             break;
         case "CHATBOTS_PAYLOAD":
             showBots(senderId);
