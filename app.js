@@ -143,6 +143,10 @@ function handleMessage(senderId, event) {
         console.log(buy_bot);
         console.log("buy_bot");
         showBots(senderId);
+    }
+    //manychat
+    else if (event.text.toLowerCase() == 'correo') {
+        showTopics(senderId);
     }else {
         defaultMessage(senderId);
     }
