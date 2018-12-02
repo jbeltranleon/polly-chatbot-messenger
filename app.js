@@ -147,6 +147,7 @@ function handleMessage(senderId, event) {
     //manychat
     else if (event.text.toLowerCase() == 'correo') {
         showTopics(senderId);
+        break;
     }else {
         defaultMessage(senderId);
     }
