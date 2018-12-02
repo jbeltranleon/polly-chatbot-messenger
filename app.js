@@ -154,11 +154,11 @@ function handleMessage(senderId, event) {
     else if (event.text.toLowerCase() == 'correo') {
         console.log("Correo");
         //break;
-    }else if (event.text.toLowerCase() == 'si, claro') {
-        console.log("Correo");
+    }else if (event.text.toLowerCase() == 'si') {
+        console.log("si");
         //break;
-    }else if (event.text.toLowerCase() == 'no, cúentame') {
-        console.log("Correo");
+    }else if (event.text.toLowerCase() == 'no') {
+        console.log("no");
         //break;
     }else {
         defaultMessage(senderId);
@@ -172,9 +172,9 @@ function handleMessage(senderId, event) {
         showBots(senderId);
     }else if (event.text.toLowerCase() == 'contacto') {
         contactSupport(senderId);
-    }else if (event.text.toLowerCase() == 'si, claro') {
+    }else if (event.text.toLowerCase() == 'si') {
         showBots(senderId);
-    }else if (event.text.toLowerCase() == 'no, cúentame') {
+    }else if (event.text.toLowerCase() == 'no') {
         botsMessage(senderId);
     }else if (event.attachments) {
         handleAttachments(senderId, event);
@@ -217,12 +217,12 @@ function giveContext(senderId) {
             "quick_replies": [
                 {
                     "content_type": "text",
-                    "title": "Si, claro",
+                    "title": "si",
                     "payload": "CALL_PAYLOAD"
                 },
                 {
                     "content_type": "text",
-                    "title": "No, cúentame",
+                    "title": "no",
                     "payload": "TALK_PAYLOAD"
                 }
             ]
