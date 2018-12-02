@@ -72,6 +72,7 @@ function handleMessage(senderId, event) {
     const ask_sentiment = firstEntity(event.nlp, 'ask_sentiment');
     const ask_bot = firstEntity(event.nlp, 'ask_bot');
     const buy_bot = firstEntity(event.nlp, 'buy_bot');
+    const ask_product = firstEntity(event.nlp, 'ask_product');
     const messageText = event.text;
 
     if (email && email.confidence > 0.8) {
@@ -144,6 +145,11 @@ function handleMessage(senderId, event) {
         console.log("buy_bot");
         showBots(senderId);
     }
+    else if (ask_product && ask_product.confidence > 0.8) {
+        console.log(ask_product);
+        console.log("ask_product");
+        giveContext(senderId);
+    }
     //manychat
     else if (event.text.toLowerCase() == 'correo') {
         console.log("Correo");
@@ -160,6 +166,10 @@ function handleMessage(senderId, event) {
         showBots(senderId);
     }else if (event.text.toLowerCase() == 'contacto') {
         contactSupport(senderId);
+    }else if (event.text.toLowerCase() == 'si, claro') {
+        showBots(senderId);
+    }else if (event.text.toLowerCase() == 'no, cúentame') {
+        botsMessage(senderId);
     }else if (event.attachments) {
         handleAttachments(senderId, event);
     }
@@ -177,11 +187,36 @@ function defaultMessage(senderId) {
                 {
                     "content_type": "text",
                     "title": "Llamar a Fredy",
-                    "payload": "CARER_PAYLOAD"
+                    "payload": "CALL_PAYLOAD"
                 },
                 {
                     "content_type": "text",
                     "title": "Busco Información",
+                    "payload": "TALK_PAYLOAD"
+                }
+            ]
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function giveContext(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "¿Sabes que es un ChatBot? 🤔",
+            "quick_replies": [
+                {
+                    "content_type": "text",
+                    "title": "Si, claro",
+                    "payload": "CALL_PAYLOAD"
+                },
+                {
+                    "content_type": "text",
+                    "title": "No, cúentame",
                     "payload": "TALK_PAYLOAD"
                 }
             ]
@@ -202,7 +237,7 @@ function startMessage(senderId) {
                 {
                     "content_type": "text",
                     "title": "Llamar a Fredy",
-                    "payload": "CARER_PAYLOAD"
+                    "payload": "CALL_PAYLOAD"
                 },
                 {
                     "content_type": "text",
@@ -227,7 +262,7 @@ function greetingMessage(senderId) {
                 {
                     "content_type": "text",
                     "title": "Llamar a Fredy",
-                    "payload": "CARER_PAYLOAD"
+                    "payload": "CALL_PAYLOAD"
                 },
                 {
                     "content_type": "text",
