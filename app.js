@@ -182,8 +182,10 @@ function handleMessage(senderId, event) {
     }else if (event.text.toLowerCase() == 'si, claro') {
         salesMessage(senderId);
         showBots(senderId);
-    }else if (event.text.toLowerCase() == 'no, cuentame') {
+    }else if (event.text.toLowerCase() == 'no, cúentame') {
         botsMessage(senderId);
+        salesMessage(senderId);
+        showBots(senderId);
     }else if (event.text.toLowerCase() == 'genial') {
         console.log("correo si");
     }else if (event.text.toLowerCase() == 'no, gracias') {
