@@ -79,6 +79,7 @@ function handleMessage(senderId, event) {
         console.log(email);
         console.log("Correo electrónico");
         emailMessage(senderId, messageText);
+        receipt(senderId)
     }else if (phone_number && phone_number.confidence > 0.8) {
         console.log(phone_number);
         console.log("Número de Telefono");
@@ -511,12 +512,16 @@ function handlePostback(senderId, payload) {
             break;
         case "CONTACT_PAYLOAD":
             contactSupport(senderId);
+            break;
 
-        //Revisión de captura de email
         case "BUSINESSBOT_PAYLOAD":
+            botMood(senderId);
+            break;
+
+        case "FRIENDLY_PAYLOAD":
             getEmail(senderId);
             break;
-            
+
         default:
             break;
     }
