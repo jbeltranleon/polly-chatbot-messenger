@@ -179,6 +179,7 @@ function handleMessage(senderId, event) {
     }else if (event.text.toLowerCase() == 'contacto') {
         contactSupport(senderId);
     }else if (event.text.toLowerCase() == 'si, claro') {
+        salesMessage(senderId);
         showBots(senderId);
     }else if (event.text.toLowerCase() == 'no, cuentame') {
         botsMessage(senderId);
@@ -286,6 +287,19 @@ function greetingMessage(senderId) {
                     "payload": "TALK_PAYLOAD"
                 }
             ]
+        }
+    }
+    senderActions(senderId)
+    callSendApi(messageData);
+}
+
+function salesMessage(senderId) {
+    const messageData = {
+        "recipient":{
+            "id": senderId
+        },
+        "message":{
+            "text": "sabias que los bots son buenos para tu negocio? Te ofrecemos los siguientes:",
         }
     }
     senderActions(senderId)
