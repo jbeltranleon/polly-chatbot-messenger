@@ -523,6 +523,10 @@ function handlePostback(senderId, payload) {
         case "FRIENDLY_PAYLOAD":
             getEmail(senderId);
             break;
+        
+        case "PROFESIONAL_PAYLOAD":
+            getEmail(senderId);
+            break;
 
         default:
             break;
