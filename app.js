@@ -178,10 +178,14 @@ function handleMessage(senderId, event) {
         showBots(senderId);
     }else if (event.text.toLowerCase() == 'contacto') {
         contactSupport(senderId);
-    }else if (event.text.toLowerCase() == 'si') {
+    }else if (event.text.toLowerCase() == 'si, claro') {
         showBots(senderId);
-    }else if (event.text.toLowerCase() == 'no') {
+    }else if (event.text.toLowerCase() == 'no, cuentame') {
         botsMessage(senderId);
+    }else if (event.text.toLowerCase() == 'genial') {
+        console.log("correo si");
+    }else if (event.text.toLowerCase() == 'no, gracias') {
+        console.log("correo no");
     }else if (event.attachments) {
         handleAttachments(senderId, event);
     }
