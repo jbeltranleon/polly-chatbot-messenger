@@ -131,7 +131,7 @@ function handleMessage(senderId, event) {
         //defaultMessage(senderId);
         greetingMessage(senderId);
     }
-    else if (ask_sentiment && ask_sentiment.confidence > 0.8) {
+    else if (ask_sentiment && ask_sentiment.confidence > 0.68) {
         console.log(ask_sentiment);
         console.log("ask_sentiment");
         feelingMessage(senderId);
