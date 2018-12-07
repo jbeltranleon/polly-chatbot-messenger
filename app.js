@@ -167,6 +167,9 @@ function handleMessage(senderId, event) {
     }else if (event.text.toLowerCase() == 'no, gracias') {
         console.log("no");
         //break;
+    }else if (event.text.toLowerCase() == 'busco información') {
+        console.log("no");
+        //break;
     }else {
         defaultMessage(senderId);
     }
